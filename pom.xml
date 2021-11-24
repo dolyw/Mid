@@ -10,13 +10,17 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>Mid</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>${revision}</version>
     <name>Mid</name>
+    <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
 
     <properties>
+        <revision>1.0.0</revision>
         <java.version>1.8</java.version>
-        <easy-captcha.version>1.6.2</easy-captcha.version>
+        <spring-cloud.version>2020.0.4</spring-cloud.version>
+        <knife4j.version>3.0.3</knife4j.version>
+        <hutool.version>5.7.15</hutool.version>
     </properties>
 
     <dependencies>
@@ -31,6 +35,7 @@
             <scope>runtime</scope>
             <optional>true</optional>
         </dependency>
+
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
@@ -38,25 +43,35 @@
         </dependency>
 
         <dependency>
-            <groupId>com.github.whvcse</groupId>
-            <artifactId>easy-captcha</artifactId>
-            <version>${easy-captcha.version}</version>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
         </dependency>
 
         <dependency>
             <groupId>cn.hutool</groupId>
             <artifactId>hutool-all</artifactId>
-            <version>5.7.15</version>
+            <version>${hutool.version}</version>
         </dependency>
     </dependencies>
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+    <modules>
+        <module>mid-api</module>
+        <module>mid-app</module>
+        <module>mid-service</module>
+        <module>mid-share</module>
+        <module>mid-web</module>
+    </modules>
 
 </project>
