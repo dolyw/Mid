@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
  * AppMapper
  *
  * @author Generator
- * @date 2021-11-29 15:03:02
+ * @date 2021-11-29 19:31:09
  */
 @Repository
 public interface AppMapper extends BaseMapper<AppDto> {

@@ -19,6 +19,7 @@ public class ResponseMessage<T> {
 	@ApiModelProperty(value = "响应信息")
     private String message;
 
+	/** 响应内容 */
 	@ApiModelProperty(value = "响应内容")
     private T data;
 

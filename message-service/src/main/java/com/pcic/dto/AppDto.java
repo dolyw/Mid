@@ -8,7 +8,7 @@ import io.swagger.annotations.ApiModel;
  * AppDto
  *
  * @author Generator
- * @date 2021-11-29 14:58:40
+ * @date 2021-11-29 19:31:09
  */
 @ApiModel(value = "应用配置表对象", description = "应用配置表对象")
 @TableName(value="t_app")

@@ -13,6 +13,6 @@ public class EmailServiceImpl implements EmailService {
 
     @Override
     public String send() {
-        return null;
+        return "OK";
     }
 }

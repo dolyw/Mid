@@ -11,6 +11,8 @@ import com.pcic.service.AppService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,12 +28,17 @@ import java.util.List;
  * AppController
  *
  * @author Generator
- * @date 2021-11-29 17:28:41
+ * @date 2021-11-29 19:31:09
  */
 @Api(tags = "应用配置表", description = "应用配置表信息操作")
 @RestController
 @RequestMapping("/app")
 public class AppController {
+
+    /**
+     * logger
+     */
+    private final static Logger logger = LoggerFactory.getLogger(AppController.class);
 
     private final AppService appService;
 
@@ -44,7 +51,7 @@ public class AppController {
      * 列表
      *
      * @author Generator
-     * @date 2021-11-29 17:28:41
+     * @date 2021-11-29 19:31:09
      */
     @ApiOperation(value = "应用配置表-列表", notes = "应用配置表-列表")
     @GetMapping("/list")
@@ -58,7 +65,7 @@ public class AppController {
      * 查询
      *
      * @author Generator
-     * @date 2021-11-29 17:28:41
+     * @date 2021-11-29 19:31:09
      */
     @ApiOperation(value = "应用配置表-查询", notes = "应用配置表-查询")
     @GetMapping("/{id}")
@@ -70,7 +77,7 @@ public class AppController {
      * 新增
      *
      * @author Generator
-     * @date 2021-11-29 17:28:41
+     * @date 2021-11-29 19:31:09
      */
     @ApiOperation(value = "应用配置表-新增", notes = "应用配置表-新增")
     @PostMapping("/add")
@@ -82,7 +89,7 @@ public class AppController {
      * 更新
      *
      * @author Generator
-     * @date 2021-11-29 17:28:41
+     * @date 2021-11-29 19:31:09
      */
     @ApiOperation(value = "应用配置表-修改", notes = "应用配置表-修改")
     @PostMapping("/update")
@@ -94,7 +101,7 @@ public class AppController {
      * 删除
      *
      * @author Generator
-     * @date 2021-11-29 17:28:41
+     * @date 2021-11-29 19:31:09
      */
     @ApiOperation(value = "应用配置表-删除", notes = "应用配置表-删除")
     @PostMapping("/delete")

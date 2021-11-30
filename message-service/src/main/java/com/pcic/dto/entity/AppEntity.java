@@ -12,7 +12,7 @@ import java.util.Date;
  * AppEntity
  *
  * @author Generator
- * @date 2021-11-29 14:58:40
+ * @date 2021-11-29 19:31:09
  */
 public class AppEntity extends BaseEntity {
 
