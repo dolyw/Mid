@@ -91,9 +91,9 @@
 	</logger>
 	
 	<!-- local环境 -->
-	<springProfile name ="dev">
+	<springProfile name ="local">
 		<!-- 打印SQL -->
-		<logger name="com.demo" level="debug" />
+		<logger name="com.pcic" level="debug" />
 	</springProfile>
 	
 	<!--系统操作日志-->

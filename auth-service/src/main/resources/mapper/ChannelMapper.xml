@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.pcic.mapper.ChannelMapper">
+    <resultMap id="channelResultMap" type="com.pcic.dto.ChannelDto">
+        <id column="channel_id" property="channelId"/>
+        <result column="channel_code" property="channelCode"/>
+        <result column="channel_name" property="channelName"/>
+        <result column="channel_type" property="channelType"/>
+        <result column="status" property="status"/>
+        <result column="effective_date" property="effectiveDate"/>
+        <result column="invalid_date" property="invalidDate"/>
+        <result column="channel_contact_name" property="channelContactName"/>
+        <result column="channel_contact_phone" property="channelContactPhone"/>
+        <result column="channel_contact_email" property="channelContactEmail"/>
+        <result column="invalid_flag" property="invalidFlag"/>
+        <result column="created_by" property="createdBy"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_by" property="updatedBy"/>
+        <result column="updated_time" property="updatedTime"/>
+    </resultMap>
+
+    <sql id="channelSelectAllColumns">
+        t.channel_id,
+        t.channel_code,
+        t.channel_name,
+        t.channel_type,
+        t.status,
+        t.effective_date,
+        t.invalid_date,
+        t.channel_contact_name,
+        t.channel_contact_phone,
+        t.channel_contact_email,
+        t.invalid_flag,
+        t.created_by,
+        t.created_time,
+        t.updated_by,
+        t.updated_time
+    </sql>
+
+</mapper>
