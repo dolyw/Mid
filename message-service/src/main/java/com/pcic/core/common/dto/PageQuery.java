@@ -1,6 +1,7 @@
 package com.pcic.core.common.dto;
 
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 import java.io.Serializable;
 
@@ -10,6 +11,7 @@ import java.io.Serializable;
  * @author wliduo[i@dolyw.com]
  * @date 2021/11/29 17:15
  */
+@Data
 public class PageQuery implements Serializable {
 
     private static final long serialVersionUID = -4869594085374385813L;
@@ -37,36 +39,4 @@ public class PageQuery implements Serializable {
      */
     @ApiModelProperty(value = "排序规则")
     private String order;
-
-    public int getPageSize() {
-        return pageSize;
-    }
-
-    public void setPageSize(int pageSize) {
-        this.pageSize = pageSize;
-    }
-
-    public int getPageNum() {
-        return pageNum;
-    }
-
-    public void setPageNum(int pageNum) {
-        this.pageNum = pageNum;
-    }
-
-    public String getField() {
-        return field;
-    }
-
-    public void setField(String field) {
-        this.field = field;
-    }
-
-    public String getOrder() {
-        return order;
-    }
-
-    public void setOrder(String order) {
-        this.order = order;
-    }
 }
