@@ -11,8 +11,7 @@ import com.pcic.service.ChannelService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,17 +27,13 @@ import java.util.List;
  * ChannelController
  *
  * @author Generator
- * @date 2021-11-30 10:32:34
+ * @date 2021-11-30 15:35:17
  */
 @Api(tags = "渠道表", description = "渠道表信息操作")
+@Slf4j
 @RestController
 @RequestMapping("/channel")
 public class ChannelController {
-
-    /**
-     * logger
-     */
-    private final static Logger logger = LoggerFactory.getLogger(ChannelController.class);
 
     private final ChannelService channelService;
 
@@ -51,7 +46,7 @@ public class ChannelController {
      * 列表
      *
      * @author Generator
-     * @date 2021-11-30 10:32:34
+     * @date 2021-11-30 15:35:17
      */
     @ApiOperation(value = "渠道表-列表", notes = "渠道表-列表")
     @GetMapping("/list")
@@ -65,7 +60,7 @@ public class ChannelController {
      * 查询
      *
      * @author Generator
-     * @date 2021-11-30 10:32:34
+     * @date 2021-11-30 15:35:17
      */
     @ApiOperation(value = "渠道表-查询", notes = "渠道表-查询")
     @GetMapping("/{id}")
@@ -77,7 +72,7 @@ public class ChannelController {
      * 新增
      *
      * @author Generator
-     * @date 2021-11-30 10:32:34
+     * @date 2021-11-30 15:35:17
      */
     @ApiOperation(value = "渠道表-新增", notes = "渠道表-新增")
     @PostMapping("/add")
@@ -89,7 +84,7 @@ public class ChannelController {
      * 更新
      *
      * @author Generator
-     * @date 2021-11-30 10:32:34
+     * @date 2021-11-30 15:35:17
      */
     @ApiOperation(value = "渠道表-修改", notes = "渠道表-修改")
     @PostMapping("/update")
@@ -101,7 +96,7 @@ public class ChannelController {
      * 删除
      *
      * @author Generator
-     * @date 2021-11-30 10:32:34
+     * @date 2021-11-30 15:35:17
      */
     @ApiOperation(value = "渠道表-删除", notes = "渠道表-删除")
     @PostMapping("/delete")

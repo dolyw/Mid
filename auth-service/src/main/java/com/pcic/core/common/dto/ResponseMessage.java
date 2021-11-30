@@ -2,6 +2,7 @@ package com.pcic.core.common.dto;
 
 import com.pcic.Constants;
 import io.swagger.annotations.ApiModelProperty;
+import lombok.Data;
 
 /**
  * ResponseMessage
@@ -9,6 +10,7 @@ import io.swagger.annotations.ApiModelProperty;
  * @author wliduo[i@dolyw.com]
  * @date 2021/11/29 15:26
  */
+@Data
 public class ResponseMessage<T> {
 
     /** 响应码 */
@@ -22,30 +24,6 @@ public class ResponseMessage<T> {
 	/** 响应内容 */
 	@ApiModelProperty(value = "响应内容")
     private T data;
-
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public String getMessage() {
-		return message;
-	}
-
-	public void setMessage(String message) {
-		this.message = message;
-	}
-
-	public T getData() {
-		return data;
-	}
-
-	public void setData(T data) {
-		this.data = data;
-	}
 
     public ResponseMessage() {
 
