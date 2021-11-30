@@ -1,3 +1,8 @@
 server:
   port: 8085
 
+spring:
+  profiles:
+    active: local
+
+

@@ -93,7 +93,7 @@
 	<!-- local环境 -->
 	<springProfile name ="dev">
 		<!-- 打印SQL -->
-		<logger name="com.demo" level="debug" />
+		<logger name="com.example" level="debug" />
 	</springProfile>
 	
 	<!--系统操作日志-->
