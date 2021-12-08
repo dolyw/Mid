@@ -23,7 +23,7 @@
         <dependency>
             <groupId>com.pcic</groupId>
             <artifactId>message-share</artifactId>
-            <version>${revision}</version>
+            <version>${share.version}</version>
         </dependency>
 
         <dependency>
