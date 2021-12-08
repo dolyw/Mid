@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.pcic</groupId>
     <artifactId>auth-share</artifactId>
-    <version>${revision}</version>
+    <version>${share.version}</version>
     <name>auth-share</name>
     <description>Demo project for Spring Boot</description>
 
