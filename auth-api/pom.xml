@@ -22,12 +22,6 @@
     <dependencies>
         <dependency>
             <groupId>com.pcic</groupId>
-            <artifactId>auth-share</artifactId>
-            <version>${share.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.pcic</groupId>
             <artifactId>auth-service</artifactId>
             <version>${revision}</version>
         </dependency>

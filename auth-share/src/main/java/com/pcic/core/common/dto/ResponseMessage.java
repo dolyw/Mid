@@ -1,6 +1,5 @@
 package com.pcic.core.common.dto;
 
-import com.pcic.Constants;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.Data;
 
@@ -12,6 +11,16 @@ import lombok.Data;
  */
 @Data
 public class ResponseMessage<T> {
+
+	/**
+	 * SUCCESS_CODE
+	 */
+	public static final String SUCCESS_CODE = "0000";
+
+	/**
+	 * FAIL_CODE
+	 */
+	public static final String FAIL_CODE = "9999";
 
     /** 响应码 */
 	@ApiModelProperty(value = "响应码 0000-处理成功 9999-系统异常")
@@ -35,15 +44,15 @@ public class ResponseMessage<T> {
     	this.data = data;
 	}
 
-	public static <T> com.pcic.core.common.dto.ResponseMessage<T> success() {
+	public static <T> ResponseMessage<T> success() {
 		return success("操作成功", null);
 	}
 
-	public static <T> com.pcic.core.common.dto.ResponseMessage<T> success(T data) {
+	public static <T> ResponseMessage<T> success(T data) {
 		return success("操作成功", data);
 	}
 
-	public static <T> com.pcic.core.common.dto.ResponseMessage<T> success(String message) {
+	public static <T> ResponseMessage<T> success(String message) {
 		return success(message, null);
 	}
 
@@ -57,19 +66,19 @@ public class ResponseMessage<T> {
 	 * @author wliduo[i@dolyw.com]
 	 * @date 2021/8/23 21:03
 	 */
-	public static <T> com.pcic.core.common.dto.ResponseMessage<T> success(String message, T data) {
-    	return new com.pcic.core.common.dto.ResponseMessage<>(Constants.SUCCESS_CODE, message, data);
+	public static <T> ResponseMessage<T> success(String message, T data) {
+    	return new ResponseMessage<>(SUCCESS_CODE, message, data);
 	}
 
-	public static <T> com.pcic.core.common.dto.ResponseMessage<T> fail() {
+	public static <T> ResponseMessage<T> fail() {
 		return fail("操作失败", null);
 	}
 
-	public static <T> com.pcic.core.common.dto.ResponseMessage<T> fail(T data) {
+	public static <T> ResponseMessage<T> fail(T data) {
 		return fail("操作失败", data);
 	}
 
-	public static <T> com.pcic.core.common.dto.ResponseMessage<T> fail(String message) {
+	public static <T> ResponseMessage<T> fail(String message) {
 		return fail(message, null);
 	}
 
@@ -83,8 +92,8 @@ public class ResponseMessage<T> {
 	 * @author wliduo[i@dolyw.com]
 	 * @date 2021/8/23 21:03
 	 */
-	public static <T> com.pcic.core.common.dto.ResponseMessage<T> fail(String message, T data) {
-		return new com.pcic.core.common.dto.ResponseMessage<>(Constants.FAIL_CODE, message, data);
+	public static <T> ResponseMessage<T> fail(String message, T data) {
+		return new ResponseMessage<>(FAIL_CODE, message, data);
 	}
 
 
@@ -95,7 +104,7 @@ public class ResponseMessage<T> {
 	 * @param <T>
 	 * @return
 	 */
-	public static <T> com.pcic.core.common.dto.ResponseMessage<T> customFail(String code, String message) {
+	public static <T> ResponseMessage<T> customFail(String code, String message) {
 		return customFail(code, message, null);
 	}
 
@@ -106,8 +115,8 @@ public class ResponseMessage<T> {
 	 * @param data
 	 * @throws
 	 */
-	public static <T> com.pcic.core.common.dto.ResponseMessage<T> customFail(String code, String message, T data) {
-		return new com.pcic.core.common.dto.ResponseMessage<>(code, message, data);
+	public static <T> ResponseMessage<T> customFail(String code, String message, T data) {
+		return new ResponseMessage<>(code, message, data);
 	}
 
 	/**
@@ -117,7 +126,7 @@ public class ResponseMessage<T> {
 	 * @param <T>
 	 * @return
 	 */
-	public static <T> com.pcic.core.common.dto.ResponseMessage<T> customSuccess(String code, String message) {
+	public static <T> ResponseMessage<T> customSuccess(String code, String message) {
 		return customSuccess(code, message, null);
 	}
 
@@ -129,8 +138,8 @@ public class ResponseMessage<T> {
 	 * @param <T>
 	 * @return
 	 */
-	public static <T> com.pcic.core.common.dto.ResponseMessage<T> customSuccess(String code, String message, T data) {
-		return new com.pcic.core.common.dto.ResponseMessage<>(code, message, data);
+	public static <T> ResponseMessage<T> customSuccess(String code, String message, T data) {
+		return new ResponseMessage<>(code, message, data);
 	}
 	
 }
