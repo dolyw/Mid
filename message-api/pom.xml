@@ -22,12 +22,6 @@
     <dependencies>
         <dependency>
             <groupId>com.pcic</groupId>
-            <artifactId>message-share</artifactId>
-            <version>${share.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.pcic</groupId>
             <artifactId>message-service</artifactId>
             <version>${revision}</version>
         </dependency>

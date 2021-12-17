@@ -1,5 +1,6 @@
 package com.pcic.api.feign;
 
+import com.pcic.api.feign.fallback.EmailFallbackFactory;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.cloud.openfeign.FeignClient;
@@ -13,9 +14,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @date 2021/11/24 13:41
  */
 @Api(tags = "Email服务", description = "Email服务")
-@FeignClient(value = "${message.api.serviceName:message}")
+@FeignClient(value = "${message.api.serviceName:message}", fallbackFactory = EmailFallbackFactory.class)
 @RequestMapping("/email")
-public interface EmailService {
+public interface EmailFeignService {
 
     /**
      * send
