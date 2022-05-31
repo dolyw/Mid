@@ -5,13 +5,13 @@
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.5.6</version>
+        <version>2.6.3</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.pcic</groupId>
-    <artifactId>message</artifactId>
+    <artifactId>ucenter</artifactId>
     <version>${revision}</version>
-    <name>message</name>
+    <name>ucenter</name>
     <packaging>pom</packaging>
     <description>Demo project for Spring Boot</description>
 
@@ -19,10 +19,14 @@
         <revision>1.0.0</revision>
         <share.version>1.0.0</share.version>
         <java.version>1.8</java.version>
-        <spring-cloud.version>2020.0.4</spring-cloud.version>
+        <spring-cloud.version>2021.0.1</spring-cloud.version>
+        <!-- 需要使用MybatisPlus逻辑删除功能切换3.4.3.4版本 -->
+        <!--<mybatis-plus-boot-starter>3.4.3.4</mybatis-plus-boot-starter>-->
+        <mybatis-plus-boot-starter>3.5.1</mybatis-plus-boot-starter>
+        <druid.version>1.2.8</druid.version>
+        <springdoc.version>1.6.8</springdoc.version>
         <knife4j.version>3.0.3</knife4j.version>
-        <hutool.version>5.7.15</hutool.version>
-        <druid.version>1.1.14</druid.version>
+        <hutool.version>5.7.22</hutool.version>
     </properties>
 
     <dependencies>
@@ -50,21 +54,15 @@
         </dependency>
 
         <dependency>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>${springdoc.version}</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <artifactId>knife4j-springdoc-ui</artifactId>
             <version>${knife4j.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>${hutool.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.baomidou</groupId>
-            <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.4.3</version>
         </dependency>
 
         <dependency>
@@ -76,6 +74,18 @@
             <groupId>com.alibaba</groupId>
             <artifactId>druid-spring-boot-starter</artifactId>
             <version>${druid.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
+            <version>${mybatis-plus-boot-starter}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
     </dependencies>
     <dependencyManagement>
@@ -91,11 +101,11 @@
     </dependencyManagement>
 
     <modules>
-        <module>message-api</module>
-        <module>message-app</module>
-        <module>message-service</module>
-        <module>message-share</module>
-        <module>message-web</module>
+        <module>ucenter-open-api</module>
+        <module>ucenter-app</module>
+        <module>ucenter-service</module>
+        <module>ucenter-share</module>
+        <module>ucenter-web-api</module>
     </modules>
 
     <build>
