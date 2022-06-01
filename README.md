@@ -25,17 +25,20 @@
 xxx-app:
 com.pcic
 		└── config          // 全局系统配置
-		└── xxxxx           // 全局处理类，过滤器，拦截器等
+		└── handle          // 全局处理类
+		└── filter          // 全局过滤器
+		└── xxxxx           // 全局其他处理，拦截器等
 
 xxx-service:
 com.pcic 
 		└── dto             // 业务数据传输对象，继承entity，根据业务扩展
 			└── entity      // 此对象与数据表结构一一对应，继承BaseEntity（审计字段）
-		└── exception       // 全局异常处理
+		└── exception       // 异常类
 		└── feign           // 内部系统无法提供二方库的Feign接口
-		    └── fallback
-        	└── req	
-        	└── resp
+		    └─ xxx          // 系统包名
+		       └─ fallback
+               └─ req	
+               └─ resp
 		└── mapper          // 数据访问层
 		└── service         // 业务逻辑层
 		└── util            // 业务工具类，可以使用hutool的不重复写
@@ -47,8 +50,9 @@ xxx-share:
 com.pcic.api
 		└── feign           // 提供内部系统调用接口
 			└── fallback    // 接口降级处理
-		    └── req         // 接口调用请求对象
-		    └── resp        // 接口调用返回对象
+		└── req             // 接口调用请求对象
+		└── resp            // 接口调用返回对象
+		└── validator       // 接口对象参数检验分组
 	
 xxx-open-api:
 com.pcic.api			    	

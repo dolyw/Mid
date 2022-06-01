@@ -1,4 +1,4 @@
-package com.pcic.config;
+package com.pcic.handle;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import org.apache.ibatis.reflection.MetaObject;
