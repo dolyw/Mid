@@ -2,6 +2,7 @@ package com.pcic.core.common.dto;
 
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * ResponseMessage
@@ -35,9 +36,7 @@ public class ResponseMessage<T> {
 	@Schema(description = "响应内容")
     private T data;
 
-    public ResponseMessage() {
-
-	}
+    public ResponseMessage() {}
 
 	public ResponseMessage(String code, String message, T data) {
     	this.code = code;
@@ -97,49 +96,28 @@ public class ResponseMessage<T> {
 		return new ResponseMessage<>(FAIL_CODE, message, data);
 	}
 
-
 	/**
-	 * 自定义操作失败
+	 * 自定义返回
+	 *
 	 * @param code
 	 * @param message
 	 * @param <T>
 	 * @return
 	 */
-	public static <T> ResponseMessage<T> customFail(String code, String message) {
-		return customFail(code, message, null);
+	public static <T> ResponseMessage<T> custom(String code, String message) {
+		return custom(code, message, null);
 	}
 
 	/**
-	 * 自定义操作失败实现
-	 *@param code
-	 * @param message
-	 * @param data
-	 * @throws
-	 */
-	public static <T> ResponseMessage<T> customFail(String code, String message, T data) {
-		return new ResponseMessage<>(code, message, data);
-	}
-
-	/**
-	 * 自定义操作成功
-	 * @param code
-	 * @param message
-	 * @param <T>
-	 * @return
-	 */
-	public static <T> ResponseMessage<T> customSuccess(String code, String message) {
-		return customSuccess(code, message, null);
-	}
-
-	/**
-	 * 自定义操作成功实现
+	 * 自定义返回
+	 *
 	 * @param code
 	 * @param message
 	 * @param data
 	 * @param <T>
 	 * @return
 	 */
-	public static <T> ResponseMessage<T> customSuccess(String code, String message, T data) {
+	public static <T> ResponseMessage<T> custom(String code, String message, T data) {
 		return new ResponseMessage<>(code, message, data);
 	}
 	
