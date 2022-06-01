@@ -2,8 +2,6 @@ package com.pcic.helper;
 
 import org.redisson.api.RLock;
 import org.redisson.api.RedissonClient;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.util.StringUtils;
@@ -18,11 +16,6 @@ import java.util.concurrent.TimeUnit;
  */
 @Component
 public class RedisLockHelper {
-
-    /**
-     * logger
-     */
-    private static final Logger logger = LoggerFactory.getLogger(RedisLockHelper.class);
 
     @Autowired
     private RedissonClient redissonClient;

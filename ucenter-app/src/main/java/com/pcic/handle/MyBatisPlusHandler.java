@@ -15,7 +15,7 @@ import java.util.Date;
 @Component
 public class MyBatisPlusHandler implements MetaObjectHandler {
 
-    public static final String USER_ADMIN = "System";
+    public static final String USER_ADMIN = "SYSTEM";
 
     @Override
     public void insertFill(MetaObject metaObject) {
