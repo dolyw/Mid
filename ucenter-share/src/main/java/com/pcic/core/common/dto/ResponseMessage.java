@@ -1,8 +1,8 @@
 package com.pcic.core.common.dto;
 
+import com.pcic.enums.HttpCodeEnum;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * ResponseMessage
@@ -13,16 +13,6 @@ import lombok.NoArgsConstructor;
 @Data
 @Schema(description = "统一返回结果")
 public class ResponseMessage<T> {
-
-	/**
-	 * SUCCESS_CODE
-	 */
-	public static final String SUCCESS_CODE = "0000";
-
-	/**
-	 * FAIL_CODE
-	 */
-	public static final String FAIL_CODE = "9999";
 
     /** 响应码 */
 	@Schema(description = "响应码 0000-处理成功 9999-系统异常")
@@ -45,11 +35,11 @@ public class ResponseMessage<T> {
 	}
 
 	public static <T> ResponseMessage<T> success() {
-		return success("操作成功", null);
+		return success(HttpCodeEnum.SUCCESS.getName(), null);
 	}
 
 	public static <T> ResponseMessage<T> success(T data) {
-		return success("操作成功", data);
+		return success(HttpCodeEnum.SUCCESS.getName(), data);
 	}
 
 	public static <T> ResponseMessage<T> success(String message) {
@@ -57,7 +47,7 @@ public class ResponseMessage<T> {
 	}
 
 	/**
-	 * 操作成功
+	 * 处理成功
 	 *
 	 * @param message
 	 * @param data
@@ -67,15 +57,15 @@ public class ResponseMessage<T> {
 	 * @date 2021/8/23 21:03
 	 */
 	public static <T> ResponseMessage<T> success(String message, T data) {
-    	return new ResponseMessage<>(SUCCESS_CODE, message, data);
+    	return new ResponseMessage<>(HttpCodeEnum.SUCCESS.getCode(), message, data);
 	}
 
 	public static <T> ResponseMessage<T> fail() {
-		return fail("操作失败", null);
+		return fail(HttpCodeEnum.FAIL.getName(), null);
 	}
 
 	public static <T> ResponseMessage<T> fail(T data) {
-		return fail("操作失败", data);
+		return fail(HttpCodeEnum.FAIL.getName(), data);
 	}
 
 	public static <T> ResponseMessage<T> fail(String message) {
@@ -83,7 +73,7 @@ public class ResponseMessage<T> {
 	}
 
 	/**
-	 * 操作失败
+	 * 处理失败
 	 *
 	 * @param message
 	 * @param data
@@ -93,7 +83,7 @@ public class ResponseMessage<T> {
 	 * @date 2021/8/23 21:03
 	 */
 	public static <T> ResponseMessage<T> fail(String message, T data) {
-		return new ResponseMessage<>(FAIL_CODE, message, data);
+		return new ResponseMessage<>(HttpCodeEnum.FAIL.getCode(), message, data);
 	}
 
 	/**

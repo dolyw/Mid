@@ -32,12 +32,12 @@ public interface ExampleFeignService {
      * @author wliduo[i@dolyw.com]
      * @date 2021/11/24 13:53
      */
-    @Operation(summary = "示例服务-XXX处理", description = "接口描述")
+    @Operation(summary = "示例服务-业务处理", description = "接口描述")
     @PostMapping("/handle")
     ResponseMessage<FeignResp> handle(@RequestBody RequestMessage<FeignReq> requestMessage) throws Exception;
 
     /**
-     * 示例服务-分布式锁示例
+     * 示例服务-Redis使用
      *
      * @param
      * @return com.pcic.core.common.dto.ResponseMessage
@@ -45,7 +45,7 @@ public interface ExampleFeignService {
      * @author wliduo[i@dolyw.com]
      * @date 2022/5/31 19:05
      */
-    @Operation(summary = "示例服务-分布式锁示例", description = "接口描述")
+    @Operation(summary = "示例服务-Redis使用", description = "接口描述")
     @PostMapping("/info")
     ResponseMessage info() throws Exception;
 }

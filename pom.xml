@@ -36,6 +36,11 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-redis</artifactId>
+        </dependency>
+
         <!-- SpringBoot新版本取消了Hibernatr-Validator的默认配置 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>

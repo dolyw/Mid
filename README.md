@@ -33,6 +33,7 @@ xxx-service:
 com.pcic 
 		└── dto             // 业务数据传输对象，继承entity，根据业务扩展
 			└── entity      // 此对象与数据表结构一一对应，继承BaseEntity（审计字段）
+		└── enums           // 枚举类
 		└── exception       // 异常类
 		└── feign           // 内部系统无法提供二方库的Feign接口
 		    └─ xxx          // 系统包名

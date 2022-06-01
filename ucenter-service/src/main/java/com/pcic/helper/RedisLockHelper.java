@@ -10,6 +10,9 @@ import java.util.concurrent.TimeUnit;
 
 /**
  * RedisLockHelper
+ * https://zhuanlan.zhihu.com/p/128131107
+ * https://zhuanlan.zhihu.com/p/130327922
+ * https://gitee.com/zlt2000/microservices-platform/tree/master/zlt-commons/zlt-common-core/src/main/java/com/central/common/lock
  *
  * @author wliduo[i@dolyw.com]
  * @date 2021/9/15 15:33

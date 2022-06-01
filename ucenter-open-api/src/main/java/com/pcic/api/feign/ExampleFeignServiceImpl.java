@@ -7,6 +7,7 @@ import com.pcic.api.validator.common.RequestMessageValidator;
 import com.pcic.api.validator.example.HandleValidator;
 import com.pcic.core.common.dto.RequestMessage;
 import com.pcic.core.common.dto.ResponseMessage;
+import com.pcic.helper.RedisHelper;
 import com.pcic.helper.RedisLockHelper;
 import com.pcic.util.ValidatorUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -27,6 +28,9 @@ import java.util.concurrent.TimeUnit;
 public class ExampleFeignServiceImpl implements ExampleFeignService {
 
     @Autowired
+    private RedisHelper redisHelper;
+
+    @Autowired
     private RedisLockHelper redisLockHelper;
 
     @Override
@@ -41,6 +45,7 @@ public class ExampleFeignServiceImpl implements ExampleFeignService {
 
     @Override
     public ResponseMessage info() throws Exception {
+        redisHelper.set("redisKey", "Test", 10L);
         FeignResp feignResp = redisLockHelper.tryLock("keyName", () -> {
             log.info("分布式锁有返回值测试");
             return new FeignResp();
