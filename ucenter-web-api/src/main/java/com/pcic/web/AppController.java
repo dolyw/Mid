@@ -87,7 +87,7 @@ public class AppController {
      * @author Generator
      * @date 2021-11-30 15:50:45
      */
-    @Operation(summary = "应用配置表-修改", description = "数据修改")
+    @Operation(summary = "应用配置表-更新", description = "数据更新")
     @PostMapping("/update")
     public ResponseMessage<Boolean> update(@RequestBody AppDto appDto) {
         return ResponseMessage.success(appService.updateById(appDto));

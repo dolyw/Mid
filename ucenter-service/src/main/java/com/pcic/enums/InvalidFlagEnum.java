@@ -11,19 +11,19 @@ import lombok.Getter;
  */
 @Getter
 @AllArgsConstructor
-public enum HttpCodeEnum {
+public enum InvalidFlagEnum {
 
     /**
-     * 处理成功
+     * 有效
      */
-    SUCCESS("0000", "处理成功"),
+    VAILD(0, "有效"),
 
     /**
-     * 处理失败
+     * 有效
      */
-    FAIL("9999", "处理失败");
+    INVALID(1, "无效");
 
-    private String code;
+    private Integer code;
 
     private String name;
 
