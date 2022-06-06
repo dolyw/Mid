@@ -119,8 +119,8 @@
     </dependencyManagement>
 
     <modules>
-        <module>ucenter-open-api</module>
         <module>ucenter-app</module>
+        <module>ucenter-open-api</module>
         <module>ucenter-service</module>
         <module>ucenter-share</module>
         <module>ucenter-web-api</module>
@@ -130,8 +130,22 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-surefire-plugin</artifactId>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.1.0</version>
                 <configuration>
+                    <!-- 需要过滤掉不需要编码的文件，防止文件出现问题 -->
+                    <nonFilteredFileExtensions>
+                        <nonFilteredFileExtension>xlsx</nonFilteredFileExtension>
+                        <nonFilteredFileExtension>xls</nonFilteredFileExtension>
+                    </nonFilteredFileExtensions>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>2.22.2</version>
+                <configuration>
+                    <!-- 打包跳过测试 -->
                     <skipTests>true</skipTests>
                 </configuration>
             </plugin>

@@ -1,6 +1,8 @@
 package com.pcic.api.feign;
 
 import cn.hutool.core.bean.BeanUtil;
+import cn.hutool.json.JSONUtil;
+import com.pcic.Constants;
 import com.pcic.api.req.FeignReq;
 import com.pcic.api.resp.FeignResp;
 import com.pcic.api.validator.common.RequestMessageValidator;
@@ -45,7 +47,11 @@ public class ExampleFeignServiceImpl implements ExampleFeignService {
 
     @Override
     public ResponseMessage info() throws Exception {
-        redisHelper.set("redisKey", "Test", 10L);
+        FeignReq feignReq = new FeignReq();
+        feignReq.setName("测试Test");
+        feignReq.setMark(false);
+        redisHelper.set("redisKey", JSONUtil.toJsonStr(feignReq), Constants.EXPIRE_MINUTE);
+        log.info("{}", redisHelper.get("redisKey"));
         FeignResp feignResp = redisLockHelper.tryLock("keyName", () -> {
             log.info("分布式锁有返回值测试");
             return new FeignResp();

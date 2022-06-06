@@ -4,6 +4,7 @@ log.path_IS_UNDEFINED/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+.flattened-pom.xml
 
 ### STS ###
 .apt_generated
