@@ -21,8 +21,8 @@
         <java.version>1.8</java.version>
         <spring-cloud.version>2021.0.1</spring-cloud.version>
         <!-- 需要使用MybatisPlus逻辑删除功能切换3.4.3.4版本 -->
-        <!--<mybatis-plus-boot-starter>3.4.3.4</mybatis-plus-boot-starter>-->
-        <mybatis-plus-boot-starter>3.5.1</mybatis-plus-boot-starter>
+        <!--<mybatis-plus.version>3.4.3.4</mybatis-plus.version>-->
+        <mybatis-plus.version>3.5.1</mybatis-plus.version>
         <druid.version>1.2.8</druid.version>
         <springdoc.version>1.6.8</springdoc.version>
         <knife4j.version>3.0.3</knife4j.version>
@@ -91,7 +91,7 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>${mybatis-plus-boot-starter}</version>
+            <version>${mybatis-plus.version}</version>
         </dependency>
 
         <dependency>
