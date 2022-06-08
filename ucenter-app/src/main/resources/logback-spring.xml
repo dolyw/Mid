@@ -28,7 +28,7 @@
     <property name="log.max.history" value="180" />
     <!-- 日志输出格式 -->
     <property name="log.pattern"
-              value="%d{yyyy-MM-dd HH:mm:ss:SSS} [%-3p] [%X{user:-}] [%thread] [%X{traceId:-}] %C{5}.%method:%L: %m%n"/>
+              value="%d{yyyy-MM-dd HH:mm:ss:SSS} [%-3p] [%X{user:-}] [%thread] [%X{traceId:-}] [%X{spanId:-}] %C{5}.%method:%L: %m%n" />
 
     <!-- 输出到控制台 -->
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
