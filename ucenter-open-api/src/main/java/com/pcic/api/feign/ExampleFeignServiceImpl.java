@@ -1,7 +1,7 @@
 package com.pcic.api.feign;
 
 import cn.hutool.core.bean.BeanUtil;
-import cn.hutool.json.JSONUtil;
+import com.alibaba.fastjson.JSON;
 import com.pcic.Constants;
 import com.pcic.api.req.FeignReq;
 import com.pcic.api.resp.FeignResp;
@@ -17,6 +17,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -50,8 +54,25 @@ public class ExampleFeignServiceImpl implements ExampleFeignService {
         FeignReq feignReq = new FeignReq();
         feignReq.setName("测试Test");
         feignReq.setMark(false);
-        redisHelper.set("redisKey", JSONUtil.toJsonStr(feignReq), Constants.EXPIRE_MINUTE);
-        log.info("{}", redisHelper.get("redisKey"));
+
+        redisHelper.set("redisKey", JSON.toJSONString(feignReq), Constants.EXPIRE_MINUTE);
+        Object object = redisHelper.get("redisKey");
+
+        redisHelper.setCacheObject("feignReq", feignReq, 60L, TimeUnit.SECONDS);
+        FeignReq feignReqTemp = redisHelper.getCacheObject("feignReq");
+
+        List<String> list = new ArrayList<>();
+        list.add("list1");
+        list.add("list2");
+        redisHelper.setCacheList("list", list);
+        redisHelper.expire("list", 60L);
+
+        Map<String, Object> map = new HashMap<>(16);
+        map.put("hKey","hValue");
+        redisHelper.setCacheMap("map", map);
+        redisHelper.expire("map", 60L);
+        redisHelper.getCacheMapValue("map", "hKey");
+
         FeignResp feignResp = redisLockHelper.tryLock("keyName", () -> {
             log.info("分布式锁有返回值测试");
             return new FeignResp();

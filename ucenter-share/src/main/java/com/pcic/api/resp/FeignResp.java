@@ -3,6 +3,7 @@ package com.pcic.api.resp;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -12,7 +13,7 @@ import java.util.Date;
  * @date 2022/5/31 17:59
  */
 @Data
-public class FeignResp {
+public class FeignResp implements Serializable {
 
     private String name;
 

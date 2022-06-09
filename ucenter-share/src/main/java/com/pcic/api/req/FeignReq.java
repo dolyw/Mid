@@ -7,6 +7,7 @@ import lombok.Data;
 import javax.validation.constraints.AssertTrue;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Past;
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -16,7 +17,7 @@ import java.util.Date;
  * @date 2022/5/31 17:59
  */
 @Data
-public class FeignReq {
+public class FeignReq implements Serializable {
 
     @NotBlank(message = "名称不能为空", groups = { HandleValidator.class })
     private String name;
