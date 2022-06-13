@@ -21,10 +21,10 @@ public abstract class BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /** 是否有效:  0-有效，1-失效 */
+    /** 失效标识:  0-有效，1-失效 */
     @TableField(fill = FieldFill.INSERT)
     @Schema(description = "失效标识")
-    private Integer invalidFlag;
+    private Integer deletedInd;
 
     /** 创建人 */
     @TableField(fill = FieldFill.INSERT)

@@ -1,7 +1,7 @@
 package com.pcic.handle;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
-import com.pcic.enums.InvalidFlagEnum;
+import com.pcic.enums.DeletedIndEnum;
 import org.apache.ibatis.reflection.MetaObject;
 import org.springframework.stereotype.Component;
 
@@ -25,7 +25,7 @@ public class MyBatisPlusHandler implements MetaObjectHandler {
      */
     @Override
     public void insertFill(MetaObject metaObject) {
-        this.strictInsertFill(metaObject, "invalidFlag", Integer.class, InvalidFlagEnum.VAILD.getCode());
+        this.strictInsertFill(metaObject, "deletedInd", Integer.class, DeletedIndEnum.VAILD.getCode());
         this.strictInsertFill(metaObject, "createdBy", String.class, USER_ADMIN);
         this.strictInsertFill(metaObject, "updatedBy", String.class, USER_ADMIN);
         this.strictInsertFill(metaObject, "createdTime", Date.class, new Date());
