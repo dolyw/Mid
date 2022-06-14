@@ -6,6 +6,7 @@ import lombok.Data;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 /**
  * RequestMessage
@@ -39,6 +40,7 @@ public class RequestMessage<T> {
     private String channelCode;
 
     @Valid
+    @NotNull(message = "请求内容不能为空", groups = { RequestMessageValidator.class })
     @Schema(description = "请求内容")
     private T data;
 

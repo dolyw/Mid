@@ -1,6 +1,6 @@
 package com.pcic.api.feign.fallback;
 
-import com.pcic.api.feign.ExampleFeignService;
+import com.pcic.api.feign.ExampleFeign;
 import com.pcic.api.req.FeignReq;
 import com.pcic.api.resp.FeignResp;
 import com.pcic.core.common.dto.RequestMessage;
@@ -17,11 +17,11 @@ import org.springframework.stereotype.Service;
  */
 @Slf4j
 @Service
-public class ExampleFallbackFactory implements FallbackFactory<ExampleFeignService> {
+public class ExampleFallbackFactory implements FallbackFactory<ExampleFeign> {
 
 	@Override
-	public ExampleFeignService create(Throwable throwable) {
-		return new ExampleFeignService() {
+	public ExampleFeign create(Throwable throwable) {
+		return new ExampleFeign() {
 			@Override
 			public ResponseMessage<FeignResp> handle(RequestMessage<FeignReq> requestMessage) {
 				// log.error("{}", throwable);

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
- * ExampleFeignService
+ * ExampleFeign
  *
  * @author wliduo[i@dolyw.com]
  * @date 2021/11/24 13:41
@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Tag(name = "示例服务")
 @FeignClient(value = "${ucenter.api.name:ucenter}", fallbackFactory = ExampleFallbackFactory.class)
 @RequestMapping("/example")
-public interface ExampleFeignService {
+public interface ExampleFeign {
 
     /**
      * 示例服务-XXX处理

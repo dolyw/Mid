@@ -24,14 +24,14 @@ import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
 /**
- * ExampleFeignServiceImpl
+ * ExampleFeignController
  *
  * @author wliduo[i@dolyw.com]
  * @date 2021/11/24 13:54
  */
 @Slf4j
 @RestController
-public class ExampleFeignServiceImpl implements ExampleFeignService {
+public class ExampleFeignController implements ExampleFeign {
 
     @Autowired
     private RedisHelper redisHelper;
