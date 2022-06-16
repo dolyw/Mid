@@ -4,14 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 /**
- * DeletedIndEnum
+ * InvalidFlagEnum
  *
  * @author wliduo[i@dolyw.com]
  * @date 2022/6/1 11:40
  */
 @Getter
 @AllArgsConstructor
-public enum DeletedIndEnum {
+public enum InvalidFlagEnum {
 
     /**
      * 有效

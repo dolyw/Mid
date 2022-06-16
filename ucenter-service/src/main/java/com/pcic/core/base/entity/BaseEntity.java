@@ -24,7 +24,7 @@ public abstract class BaseEntity implements Serializable {
     /** 失效标识:  0-有效，1-失效 */
     @TableField(fill = FieldFill.INSERT)
     @Schema(description = "失效标识")
-    private Integer deletedInd;
+    private Integer invalidFlag;
 
     /** 创建人 */
     @TableField(fill = FieldFill.INSERT)

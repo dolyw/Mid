@@ -44,6 +44,10 @@ public class RequestMessage<T> {
     @Schema(description = "请求内容")
     private T data;
 
+    public static <T> Builder<T> builder() {
+        return new Builder<T>();
+    }
+
     /**
      * 添加Builder模式
      *

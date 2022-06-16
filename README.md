@@ -75,4 +75,4 @@ com.pcic
 
 * 采用SpringDoc，支持多分组，WebApi及服务Api接口分组
 * 接口文档UI组件knife4j，文档导出Markdown，Html等多种格式，PDF可使用Markdown转换
-* 访问地址: [http://localhost:XXXX/doc.html](http://localhost:8086/doc.html)
+* 访问地址: http://localhost:XXXX/doc.html
