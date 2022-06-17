@@ -30,7 +30,6 @@ public class MyBatisPlusHandler implements MetaObjectHandler {
         this.strictInsertFill(metaObject, "updatedBy", String.class, SYSTEM);
         this.strictInsertFill(metaObject, "createdTime", Date.class, new Date());
         this.strictInsertFill(metaObject, "updatedTime", Date.class, new Date());
-
     }
 
     /**

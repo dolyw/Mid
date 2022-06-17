@@ -1,6 +1,5 @@
 package com.pcic.web;
 
-import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
@@ -51,9 +50,8 @@ public class AppController {
     @Operation(summary = "应用配置表-列表", description = "列表查询")
     @GetMapping("/list")
     public ResponseMessage<IPage<AppDto>> list(PageQuery pageQuery, AppDto appDto) {
-        Page<AppDto> page = new Page<>(pageQuery.getPageNum(), pageQuery.getPageSize());
-        QueryWrapper<AppDto> appDtoQueryWrapper = Wrappers.query(appDto);
-        return ResponseMessage.success(appService.page(page, appDtoQueryWrapper));
+        Page<AppDto> page = Page.of(pageQuery.getPageNum(), pageQuery.getPageSize());
+        return ResponseMessage.success(appService.page(page, Wrappers.lambdaQuery(appDto)));
     }
 
     /**
