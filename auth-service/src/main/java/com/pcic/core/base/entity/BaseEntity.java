@@ -4,7 +4,7 @@ import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.annotation.OrderBy;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.fasterxml.jackson.annotation.JsonFormat;
-import io.swagger.annotations.ApiModelProperty;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 
 import java.io.Serializable;
@@ -21,30 +21,30 @@ public abstract class BaseEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    /** 是否有效:  0-有效，1-失效 */
+    /** 失效标识:  0-有效，1-失效 */
     @TableField(fill = FieldFill.INSERT)
-    @ApiModelProperty(value = "失效标识")
+    @Schema(description = "失效标识")
     private Integer invalidFlag;
 
     /** 创建人 */
     @TableField(fill = FieldFill.INSERT)
-    @ApiModelProperty(value = "创建人")
+    @Schema(description = "创建人")
     private String createdBy;
 
     /** 创建时间 */
     @TableField(fill = FieldFill.INSERT)
-    @ApiModelProperty(value = "创建时间")
+    @Schema(description = "创建时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     private Date createdTime;
 
     /** 更新人 */
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    @ApiModelProperty(value = "更新人")
+    @Schema(description = "更新人")
     private String updatedBy;
 
     /** 更新时间 */
     @TableField(fill = FieldFill.INSERT_UPDATE)
-    @ApiModelProperty(value = "更新时间")
+    @Schema(description = "更新时间")
     @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+8")
     @OrderBy
     private Date updatedTime;

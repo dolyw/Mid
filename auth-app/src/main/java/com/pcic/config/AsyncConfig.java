@@ -1,7 +1,6 @@
 package com.pcic.config;
 
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.aop.interceptor.AsyncUncaughtExceptionHandler;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.AsyncConfigurer;
@@ -16,14 +15,10 @@ import java.util.Arrays;
  * @author wliduo[i@dolyw.com]
  * @date 2020/5/19 17:58
  */
+@Slf4j
 @Configuration
 @EnableAsync
 public class AsyncConfig implements AsyncConfigurer {
-
-    /**
-     * logger
-     */
-    private static final Logger logger = LoggerFactory.getLogger(AsyncConfig.class);
 
     /**
      * 这里不实现了，使用 ThreadPoolConfig 里的线程池即可
@@ -63,12 +58,12 @@ public class AsyncConfig implements AsyncConfigurer {
 
         @Override
         public void handleUncaughtException(Throwable throwable, Method method, Object... obj) {
-            logger.info("Exception message - {}", throwable.getMessage());
-            logger.info("Method name - {}", method.getName());
-            logger.info("Parameter values - {}", Arrays.toString(obj));
+            log.info("Exception message - {}", throwable.getMessage());
+            log.info("Method name - {}", method.getName());
+            log.info("Parameter values - {}", Arrays.toString(obj));
             if (throwable instanceof Exception) {
                 Exception exception = (Exception) throwable;
-                logger.info("exception:{}", exception.getMessage());
+                log.info("exception:{}", exception.getMessage());
             }
             throwable.printStackTrace();
         }

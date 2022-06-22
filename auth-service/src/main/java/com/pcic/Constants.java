@@ -9,13 +9,28 @@ package com.pcic;
 public class Constants {
 
 	/**
-	 * SUCCESS_CODE
+	 * 过期时间，以秒为单位，一分钟
 	 */
-	public static final String SUCCESS_CODE = "0000";
+	public static final long EXPIRE_MINUTE = 60;
 
 	/**
-	 * FAIL_CODE
+	 * 过期时间，以秒为单位，一小时
 	 */
-	public static final String FAIL_CODE = "9999";
+	public static final long EXPIRE_HOUR = 60 * 60;
+
+	/**
+	 * 过期时间，以秒为单位，一天
+	 */
+	public static final long EXPIRE_DAY = 60 * 60 * 24;
+
+	/**
+	 * 过期时间，以秒为单位，一周
+	 */
+	public static final long EXPIRE_WEEK = 60 * 60 * 24 * 7;
+
+	/**
+	 * 过期时间，以秒为单位，一月
+	 */
+	public static final long EXPIRE_MONTH = 60 * 60 * 24 * 30;
 
 }

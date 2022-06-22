@@ -9,35 +9,22 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
     <groupId>com.pcic</groupId>
-    <artifactId>auth-app</artifactId>
+    <artifactId>auth-open-api</artifactId>
     <version>${revision}</version>
-    <name>auth-app</name>
+    <packaging>jar</packaging>
+    <name>auth-open-api</name>
     <description>Demo project for Spring Boot</description>
 
     <properties>
         <java.version>1.8</java.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.pcic</groupId>
-            <artifactId>auth-web-api</artifactId>
-            <version>${revision}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.pcic</groupId>
-            <artifactId>auth-open-api</artifactId>
+            <artifactId>auth-service</artifactId>
             <version>${revision}</version>
         </dependency>
     </dependencies>
-
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
 
 </project>

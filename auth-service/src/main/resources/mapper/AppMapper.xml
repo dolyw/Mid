@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.pcic.mapper.AppMapper">
+    <resultMap id="appResultMap" type="com.pcic.dto.AppDto">
+        <id column="app_id" property="appId"/>
+        <result column="app_code" property="appCode"/>
+        <result column="app_name" property="appName"/>
+        <result column="app_secret" property="appSecret"/>
+        <result column="app_type" property="appType"/>
+        <result column="invalid_flag" property="invalidFlag"/>
+        <result column="created_by" property="createdBy"/>
+        <result column="created_time" property="createdTime"/>
+        <result column="updated_by" property="updatedBy"/>
+        <result column="updated_time" property="updatedTime"/>
+    </resultMap>
+
+    <sql id="appSelectAllColumns">
+        t.app_id,
+        t.app_code,
+        t.app_name,
+        t.app_secret,
+        t.app_type,
+        t.invalid_flag,
+        t.created_by,
+        t.created_time,
+        t.updated_by,
+        t.updated_time
+    </sql>
+
+</mapper>
