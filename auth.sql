@@ -84,7 +84,7 @@ CREATE TABLE `t_app` (
   `app_name` varchar(64) NOT NULL COMMENT '应用名称',
   `app_secret` varchar(64) NOT NULL COMMENT '应用私钥',
   `app_type` varchar(50) DEFAULT NULL COMMENT '应用类型',
-  `invalid_flag` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '失效标识:  0-有效，1-失效',
+  `invalid_flag` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '失效标识 0-有效，1-失效',
   `created_by` varchar(50) NOT NULL COMMENT '创建人',
   `created_time` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) COMMENT '创建时间',
   `updated_by` varchar(50) NOT NULL COMMENT '更新人',
@@ -106,7 +106,7 @@ CREATE TABLE `t_channel` (
   `contact_name` varchar(64) DEFAULT NULL COMMENT '渠道联系人',
   `contact_phone` varchar(20) DEFAULT NULL COMMENT '渠道联系电话',
   `contact_email` varchar(64) DEFAULT NULL COMMENT '渠道联系邮箱',
-  `invalid_flag` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '失效标识:  0-有效，1-失效',
+  `invalid_flag` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '失效标识 0-有效，1-失效',
   `created_by` varchar(50) NOT NULL COMMENT '创建人',
   `created_time` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) COMMENT '创建时间',
   `updated_by` varchar(50) NOT NULL COMMENT '更新人',
@@ -125,7 +125,7 @@ CREATE TABLE `t_pub_dict_data` (
   `dict_t_name` varchar(100) DEFAULT NULL COMMENT '字典繁体中文名称',
   `display_no` int NOT NULL COMMENT '显示序号',
   `remark` varchar(500) DEFAULT NULL COMMENT '备注',
-  `invalid_flag` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '失效标识:  0-有效，1-失效',
+  `invalid_flag` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '失效标识 0-有效，1-失效',
   `created_by` varchar(50) NOT NULL COMMENT '创建人',
   `created_time` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) COMMENT '创建时间',
   `updated_by` varchar(50) NOT NULL COMMENT '更新人',
@@ -144,7 +144,7 @@ CREATE TABLE `t_pub_dict_type` (
   `dict_type_e_name` varchar(100) DEFAULT NULL COMMENT '字典英文名称',
   `dict_type_t_name` varchar(100) DEFAULT NULL COMMENT '字典繁体中文名称',
   `remark` varchar(200) DEFAULT NULL COMMENT '备注',
-  `invalid_flag` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '失效标识:  0-有效，1-失效',
+  `invalid_flag` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '失效标识 0-有效，1-失效',
   `created_by` varchar(50) NOT NULL COMMENT '创建人',
   `created_time` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) COMMENT '创建时间',
   `updated_by` varchar(50) NOT NULL COMMENT '更新人',
@@ -170,7 +170,7 @@ CREATE TABLE `t_message_log` (
   `field_a` int DEFAULT NULL COMMENT '备用字段a',
   `field_b` varchar(30) DEFAULT NULL COMMENT '备用字段b',
   `field_c` varchar(300) DEFAULT NULL COMMENT '备用字段c',
-  `invalid_flag` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '失效标识:  0-有效，1-失效',
+  `invalid_flag` tinyint unsigned NOT NULL DEFAULT '0' COMMENT '失效标识 0-有效，1-失效',
   `created_by` varchar(50) NOT NULL COMMENT '创建人',
   `created_time` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) COMMENT '创建时间',
   `updated_by` varchar(50) NOT NULL COMMENT '更新人',
@@ -198,7 +198,9 @@ INSERT INTO `sys_role` VALUES ('1', 'admin', '系统管理员', '0', '0', now(),
 -- ----------------------------
 INSERT INTO `sys_resource` VALUES ('1', 'Index', '首页', 'sys:index', '/index', null, 'el-icon-home-filled', '1', '1', null, '0', now(), now());
 INSERT INTO `sys_resource` VALUES ('2', 'System', '系统管理', 'sys:manager', '/system', null, 'el-icon-setting', '2', '1', null, '0', now(), now());
-INSERT INTO `sys_resource` VALUES ('6', 'Dashboard', '控制台', 'sys:index:dashboard', '/dashboard', '/dashboard', 'el-icon-film', '3', '1', '1', '0', now(), now());
+INSERT INTO `sys_resource` VALUES ('3', 'Dashboard', '控制台', 'sys:index:dashboard', '/dashboard', '/dashboard', 'el-icon-film', '3', '1', '1', '0', now(), now());
+INSERT INTO `sys_resource` VALUES ('5', 'Info', '帐号信息', 'sys:index:info', '/info', '/info', 'el-icon-user', '5', '1', '1', '0', now(), now());
+INSERT INTO `sys_resource` VALUES ('6', 'About', '关于版本', 'sys:index:about', '/other/about', '/other/about', 'sc-icon-organization', '9', '1', '1', '0', now(), now());
 INSERT INTO `sys_resource` VALUES ('7', 'Permission', '权限管理', 'sys:auth:auth', '/auth', null, 'el-icon-connection', '12', '1', '2', '0', now(), now());
 INSERT INTO `sys_resource` VALUES ('8', 'Resource', '资源管理', 'sys:auth:resource', '/system/resource', '/system/resource', 'el-icon-help', '22', '1', '7', '0', now(), now());
 INSERT INTO `sys_resource` VALUES ('9', 'Role', '角色管理', 'sys:auth:role', '/system/role', '/system/role', 'el-icon-avatar', '21', '1', '7', '0', now(), now());
@@ -236,7 +238,7 @@ INSERT INTO `sys_user_role` VALUES ('1', '1', '1', '0', now(), now());
 -- ----------------------------
 INSERT INTO `sys_role_resource` VALUES ('1', '1', '0', '0', now(), now());
 INSERT INTO `sys_role_resource` VALUES ('2', '1', '1', '0', now(), now());
-INSERT INTO `sys_role_resource` VALUES ('3', '1', '6', '0', now(), now());
+INSERT INTO `sys_role_resource` VALUES ('3', '1', '3', '0', now(), now());
 INSERT INTO `sys_role_resource` VALUES ('4', '1', '33', '0', now(), now());
 INSERT INTO `sys_role_resource` VALUES ('5', '1', '34', '0', now(), now());
 INSERT INTO `sys_role_resource` VALUES ('6', '1', '35', '0', now(), now());
@@ -264,3 +266,5 @@ INSERT INTO `sys_role_resource` VALUES ('27', '1', '15', '0', now(), now());
 INSERT INTO `sys_role_resource` VALUES ('28', '1', '14', '0', now(), now());
 INSERT INTO `sys_role_resource` VALUES ('29', '1', '13', '0', now(), now());
 INSERT INTO `sys_role_resource` VALUES ('30', '1', '12', '0', now(), now());
+INSERT INTO `sys_role_resource` VALUES ('31', '1', '5', '0', now(), now());
+INSERT INTO `sys_role_resource` VALUES ('32', '1', '6', '0', now(), now());
