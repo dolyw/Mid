@@ -33,4 +33,14 @@ public class Constants {
 	 */
 	public static final long EXPIRE_MONTH = 60 * 60 * 24 * 30;
 
+	/**
+	 * 线程池-IO密集型
+	 */
+	public static final String THREAD_POOL_IO = "ioThreadPoolExecutor";
+
+	/**
+	 * 线程池-CPU(计算)密集型
+	 */
+	public static final String THREAD_POOL_CPU = "cpuThreadPoolExecutor";
+
 }
