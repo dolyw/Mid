@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 
 /**
@@ -72,6 +73,21 @@ public class ExampleFeignController implements ExampleFeign {
         redisHelper.setCacheMap("map", map);
         redisHelper.expire("map", 60L);
         redisHelper.getCacheMapValue("map", "hKey");
+
+        redisHelper.setCacheZSetValue("auth:channelZSet", "ZZAQ1", 111);
+        redisHelper.setCacheZSetValue("auth:channelZSet", "ZZAQ2", 1);
+        redisHelper.setCacheZSetValue("auth:channelZSet", "ZZAQ3", 2);
+        redisHelper.setCacheZSetValue("auth:channelZSet", "ZZAQ4", 3);
+        redisHelper.setCacheZSetValue("auth:channelZSet", "ZZAQ8", 5);
+        redisHelper.setCacheZSetValue("auth:channelZSet", "ZZAQ5", 7);
+        redisHelper.setCacheZSetValue("auth:channelZSet", "ZZAQ7", 222);
+        redisHelper.setCacheZSetValue("auth:channelZSet", "ZZAQ6", 10);
+        Long count = redisHelper.getCacheZSetCount("auth:channelZSet");
+        Double score = redisHelper.getCacheZSetScore("auth:channelZSet", "ZZAQ6");
+        Set<String> zSet = redisHelper.getCacheZSet("auth:channelZSet", 0, -1);
+        Set<String> zSetDesc = redisHelper.getCacheZSetDesc("auth:channelZSet", 0, -1);
+        Set<String> zSet2 = redisHelper.getCacheZSet("auth:channelZSet", 0, 3);
+        Set<String> zSet5 = redisHelper.getCacheZSet("auth:channelZSet", 3, 3);
 
         FeignResp feignResp = redisLockHelper.tryLock("keyName", () -> {
             log.info("分布式锁有返回值测试");

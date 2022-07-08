@@ -229,6 +229,72 @@ public class RedisHelper {
         return this.hDel(key, hKeys);
     }
 
+    /**
+     * 缓存ZSet
+     *
+     * @param key   缓存键值
+     * @param value 缓存的数据
+     * @param score 缓存的分数
+     * @return
+     */
+    public <T> Boolean setCacheZSetValue(String key, T value, double score) {
+        return this.zAdd(key, value, score);
+    }
+
+    /**
+     * 获得缓存ZSet的数量
+     *
+     * @param key
+     * @return
+     */
+    public Long getCacheZSetCount(String key) {
+        return this.zCard(key);
+    }
+
+    /**
+     * 获得缓存ZSet，按分数值递增(从小到大)顺序排列
+     *
+     * @param key
+     * @param start 从0开始，区间左开右闭
+     * @param end   传-1表示查询所有
+     * @return
+     */
+    public <T> Set<T> getCacheZSet(String key, long start, long end) {
+        return this.zRange(key, start, end);
+    }
+
+    /**
+     * 获得缓存ZSet，按分数值递增(从大到小)顺序排列
+     *
+     * @param key
+     * @param start 从0开始，区间左开右闭
+     * @param end   传-1表示查询所有
+     * @return
+     */
+    public <T> Set<T> getCacheZSetDesc(String key, long start, long end) {
+        return this.zRevRange(key, start, end);
+    }
+
+    /**
+     * 获得缓存ZSet的Score
+     *
+     * @param key
+     * @param value
+     * @return
+     */
+    public Double getCacheZSetScore(String key, Object value) {
+        return this.zScore(key, value);
+    }
+
+    /**
+     * 删除ZSet中的对象
+     *
+     * @param key
+     * @param value
+     */
+    public Long deleteCacheZSet(String key, Object... value) {
+        return this.zRem(key, value);
+    }
 
     /**
      * 指定缓存失效时间
@@ -842,5 +908,77 @@ public class RedisHelper {
             log.error(e.getMessage(), e);
             return 0L;
         }
+    }
+
+    /**
+     * 缓存ZSet
+     *
+     * @param key   缓存键值
+     * @param value 缓存的数据
+     * @param score 缓存的分数
+     * @return
+     */
+    public <T> Boolean zAdd(String key, T value, double score) {
+        try {
+            return redisTemplate.opsForZSet().add(key, value, score);
+        } catch (Exception e) {
+            log.error(e.getMessage(), e);
+            return false;
+        }
+    }
+
+    /**
+     * 获得缓存ZSet的数量
+     *
+     * @param key
+     * @return
+     */
+    public Long zCard(String key) {
+        return redisTemplate.opsForZSet().size(key);
+    }
+
+    /**
+     * 获得缓存ZSet，按分数值递增(从小到大)顺序排列
+     *
+     * @param key
+     * @param start 从0开始，区间左开右闭
+     * @param end   传-1表示查询所有
+     * @return
+     */
+    public <T> Set<T> zRange(String key, long start, long end) {
+        return redisTemplate.opsForZSet().range(key, start, end);
+    }
+
+    /**
+     * 获得缓存ZSet，按分数值递增(从大到小)顺序排列
+     *
+     * @param key
+     * @param start 从0开始，区间左开右闭
+     * @param end   传-1表示查询所有
+     * @return
+     */
+    public <T> Set<T> zRevRange(String key, long start, long end) {
+        return redisTemplate.opsForZSet().reverseRange(key, start, end);
+    }
+
+    /**
+     * 获得缓存ZSet的Score
+     *
+     * @param key
+     * @param value
+     * @return
+     */
+    public Double zScore(String key, Object value) {
+        return redisTemplate.opsForZSet().score(key, value);
+    }
+
+    /**
+     * 删除ZSet中的对象
+     *
+     * @param key
+     * @param value
+     */
+    public Long zRem(String key, Object... value) {
+        return redisTemplate.opsForZSet().remove(key, value);
     }
 }
