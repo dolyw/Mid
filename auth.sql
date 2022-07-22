@@ -196,8 +196,8 @@ INSERT INTO `sys_role` VALUES ('1', 'admin', '系统管理员', '0', '0', now(),
 -- ----------------------------
 -- Records of sys_resource
 -- ----------------------------
-INSERT INTO `sys_resource` VALUES ('1', 'Index', '首页', 'sys:index', '/index', null, 'el-icon-home-filled', '1', '1', null, '0', now(), now());
-INSERT INTO `sys_resource` VALUES ('2', 'System', '系统管理', 'sys:manager', '/system', null, 'el-icon-setting', '2', '1', null, '0', now(), now());
+INSERT INTO `sys_resource` VALUES ('1', 'Index', '首页', 'sys:index', '/index', null, 'el-icon-home-filled', '1', '1', '0', '0', now(), now());
+INSERT INTO `sys_resource` VALUES ('2', 'System', '系统管理', 'sys:manager', '/system', null, 'el-icon-setting', '2', '1', '0', '0', now(), now());
 INSERT INTO `sys_resource` VALUES ('3', 'Dashboard', '控制台', 'sys:index:dashboard', '/dashboard', '/dashboard', 'el-icon-film', '3', '1', '1', '0', now(), now());
 INSERT INTO `sys_resource` VALUES ('5', 'Info', '帐号信息', 'sys:index:info', '/info', '/info', 'el-icon-user', '5', '1', '1', '0', now(), now());
 INSERT INTO `sys_resource` VALUES ('6', 'About', '关于版本', 'sys:index:about', '/other/about', '/other/about', 'sc-icon-organization', '9', '1', '1', '0', now(), now());
