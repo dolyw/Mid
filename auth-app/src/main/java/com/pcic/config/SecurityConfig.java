@@ -13,6 +13,6 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     public void configure(WebSecurity web) {
-        web.ignoring().antMatchers("/doc.html", "/webjars/**", "/v3/api-docs/**", "/favicon.ico");
+        web.ignoring().antMatchers("/doc.html", "/webjars/**", "/v3/api-docs/**", "/actuator/**", "/favicon.ico");
     }
 }

@@ -201,7 +201,7 @@ INSERT INTO `sys_resource` VALUES ('2', 'System', '系统管理', 'sys:manager',
 INSERT INTO `sys_resource` VALUES ('3', 'Dashboard', '控制台', 'sys:index:dashboard', '/dashboard', '/dashboard', 'el-icon-film', '3', '1', '1', '0', now(), now());
 INSERT INTO `sys_resource` VALUES ('5', 'Info', '帐号信息', 'sys:index:info', '/info', '/info', 'el-icon-user', '5', '1', '1', '0', now(), now());
 INSERT INTO `sys_resource` VALUES ('6', 'About', '关于版本', 'sys:index:about', '/other/about', '/other/about', 'sc-icon-organization', '9', '1', '1', '0', now(), now());
-INSERT INTO `sys_resource` VALUES ('7', 'Permission', '权限管理', 'sys:auth:auth', '/auth', null, 'el-icon-connection', '12', '1', '2', '0', now(), now());
+INSERT INTO `sys_resource` VALUES ('7', 'Permission', '权限管理', 'sys:auth:auth', '/system/auth', null, 'el-icon-connection', '12', '1', '2', '0', now(), now());
 INSERT INTO `sys_resource` VALUES ('8', 'Resource', '资源管理', 'sys:auth:resource', '/system/resource', '/system/resource', 'el-icon-help', '22', '1', '7', '0', now(), now());
 INSERT INTO `sys_resource` VALUES ('9', 'Role', '角色管理', 'sys:auth:role', '/system/role', '/system/role', 'el-icon-avatar', '21', '1', '7', '0', now(), now());
 INSERT INTO `sys_resource` VALUES ('11', 'User', '用户管理', 'sys:auth:user', '/system/user', '/system/user', 'el-icon-user-filled', '11', '1', '2', '0', now(), now());
